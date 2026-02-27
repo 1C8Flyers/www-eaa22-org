@@ -7,7 +7,6 @@ services:
     environment:
       GOOGLE_CALENDAR_API_KEY: ${GOOGLE_CALENDAR_API_KEY:-}
       EVENTS_DAYS_AHEAD: ${EVENTS_DAYS_AHEAD:-180}
-      BRAND_SOURCE_URL: ${BRAND_SOURCE_URL:-https://www.eaa320.com/}
     ports:
       - "1313:1313"
     volumes:
@@ -21,11 +20,9 @@ services:
       args:
         GOOGLE_CALENDAR_API_KEY: ${GOOGLE_CALENDAR_API_KEY:-}
         EVENTS_DAYS_AHEAD: ${EVENTS_DAYS_AHEAD:-180}
-        BRAND_SOURCE_URL: ${BRAND_SOURCE_URL:-https://www.eaa320.com/}
     environment:
       GOOGLE_CALENDAR_API_KEY: ${GOOGLE_CALENDAR_API_KEY:-}
       EVENTS_DAYS_AHEAD: ${EVENTS_DAYS_AHEAD:-180}
-      BRAND_SOURCE_URL: ${BRAND_SOURCE_URL:-https://www.eaa320.com/}
     ports:
       - "8080:80"
     restart: unless-stopped

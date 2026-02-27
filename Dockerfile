@@ -27,10 +27,8 @@ CMD ["npm", "run", "dev:docker"]
 FROM dev AS prep
 ARG GOOGLE_CALENDAR_API_KEY=""
 ARG EVENTS_DAYS_AHEAD=180
-ARG BRAND_SOURCE_URL="https://www.eaa320.com/"
 ENV GOOGLE_CALENDAR_API_KEY=${GOOGLE_CALENDAR_API_KEY}
 ENV EVENTS_DAYS_AHEAD=${EVENTS_DAYS_AHEAD}
-ENV BRAND_SOURCE_URL=${BRAND_SOURCE_URL}
 RUN npm run build:prepare
 
 FROM klakegg/hugo:ext-alpine AS hugo-build

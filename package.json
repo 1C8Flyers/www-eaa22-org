@@ -7,7 +7,7 @@
     "fetch:events": "node scripts/fetch-events.mjs",
     "fetch:photos": "node scripts/fetch-photos.mjs",
     "extract:brand": "node scripts/extract-brand-colors.mjs",
-    "build:prepare": "npm run fetch:events && npm run fetch:photos && npm run extract:brand",
+    "build:prepare": "npm run fetch:events && npm run fetch:photos",
     "build:hugo": "hugo --source site --destination public --minify",
     "build": "npm run build:prepare && npm run build:hugo",
     "dev:docker": "npm install && npm run build:prepare && hugo server --source site --bind 0.0.0.0 --port 1313 --disableFastRender"
