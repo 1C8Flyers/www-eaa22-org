@@ -96,7 +96,6 @@ a:hover { text-decoration: underline; }
 .nav > a.active,
 .nav-dropdown:hover .nav-parent,
 .nav-dropdown:focus-within .nav-parent,
-.nav-dropdown[open] .nav-parent,
 .nav-dropdown.active .nav-parent {
   background: var(--brand-primary);
   color: white;
@@ -133,14 +132,20 @@ a:hover { text-decoration: underline; }
   border-radius: 12px;
   box-shadow: var(--shadow-soft);
   padding: 0.4rem;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
   z-index: 40;
 }
 
 .nav-dropdown:hover .nav-menu,
-.nav-dropdown:focus-within .nav-menu,
-.nav-dropdown[open] .nav-menu {
-  display: block;
+.nav-dropdown:focus-within .nav-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .nav-menu a {
@@ -194,6 +199,19 @@ a:hover { text-decoration: underline; }
   .nav-menu {
     left: 0;
     right: auto;
+  }
+
+  .nav-dropdown[open] .nav-parent {
+    background: var(--brand-primary);
+    color: white;
+    text-decoration: none;
+  }
+
+  .nav-dropdown[open] .nav-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 }
 
