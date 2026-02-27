@@ -44,10 +44,6 @@
           {{ end }}
         {{ end }}
       </nav>
-
-      {{ with index site.Menus.cta 0 }}
-        <a class="nav-donate {{ if hasPrefix $current .URL }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
-      {{ end }}
     </div>
   </div>
 </header>

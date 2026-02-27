@@ -163,22 +163,6 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
-.nav-donate {
-  background: var(--brand-primary);
-  color: white;
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.nav-donate:hover,
-.nav-donate.active {
-  background: color-mix(in oklab, var(--brand-primary) 86%, black);
-  color: white;
-  text-decoration: none;
-}
-
 @media (max-width: 920px) {
   .site-header .bar {
     flex-direction: column;

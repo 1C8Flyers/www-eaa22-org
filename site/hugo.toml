@@ -69,7 +69,3 @@ timeZone = "America/Chicago"
     parent = "more"
     weight = 53
 
-  [[menu.cta]]
-    name = "Donate"
-    url = "/donate/"
-    weight = 1
