@@ -1,0 +1,53 @@
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="/">
+      <img class="brand-logo" src="/images/EAA22_Logo.png" alt="EAA Chapter 22 Rockford Illinois logo">
+      <span>EAA Chapter 22 - Rockford, IL</span>
+    </a>
+
+    <div class="header-right">
+      {{ $current := .RelPermalink }}
+      <nav class="nav" aria-label="Main navigation">
+        {{ range site.Menus.main }}
+          {{ if not .Parent }}
+            {{ $isActive := false }}
+            {{ if eq .URL "/" }}
+              {{ $isActive = eq $current "/" }}
+            {{ else if ne .URL "#" }}
+              {{ $isActive = hasPrefix $current .URL }}
+            {{ end }}
+            {{ $hasChildActive := false }}
+            {{ range .Children }}
+              {{ if and (ne .URL "/") (hasPrefix $current .URL) }}
+                {{ $hasChildActive = true }}
+              {{ end }}
+            {{ end }}
+
+            {{ if gt (len .Children) 0 }}
+              <details class="nav-dropdown {{ if $hasChildActive }}active{{ end }}" {{ if $hasChildActive }}open{{ end }}>
+                <summary class="nav-parent">{{ .Name }}</summary>
+                <div class="nav-menu">
+                  {{ range .Children }}
+                    {{ $childActive := false }}
+                    {{ if eq .URL "/" }}
+                      {{ $childActive = eq $current "/" }}
+                    {{ else }}
+                      {{ $childActive = hasPrefix $current .URL }}
+                    {{ end }}
+                    <a href="{{ .URL }}" class="{{ if $childActive }}active{{ end }}">{{ .Name }}</a>
+                  {{ end }}
+                </div>
+              </details>
+            {{ else }}
+              <a href="{{ .URL }}" class="{{ if $isActive }}active{{ end }}">{{ .Name }}</a>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </nav>
+
+      {{ with index site.Menus.cta 0 }}
+        <a class="nav-donate {{ if hasPrefix $current .URL }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+    </div>
+  </div>
+</header>

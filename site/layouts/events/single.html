@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <section class="container page-header">
+    <a class="icon-back" href="/events/" aria-label="Go back" onclick="if (window.history.length > 1) { event.preventDefault(); history.back(); }">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+        <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a>
+    <h1>{{ .Title }}</h1>
+    <p class="meta">
+      {{ if .Params.allDay }}
+        {{ time .Params.start | time.Format "Mon, Jan 2" }} • All day
+      {{ else }}
+        {{ time .Params.start | time.Format "Mon, Jan 2 • 3:04 PM" }}
+      {{ end }}
+      {{ with .Params.location }} • {{ . }}{{ end }}
+    </p>
+  </section>
+
+  <section class="container section">
+    <article class="card fade-in">
+      <p><strong>Category:</strong> {{ .Params.category }}</p>
+      {{ .Content }}
+      <div class="cta-row">
+        <a class="button secondary" href="{{ .Params.icsPath }}">Download .ics</a>
+        {{ with .Params.url }}<a class="button secondary" href="{{ . }}" target="_blank" rel="noopener">Source Event</a>{{ end }}
+      </div>
+    </article>
+  </section>
+{{ end }}

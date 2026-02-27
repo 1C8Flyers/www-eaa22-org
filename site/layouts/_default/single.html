@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{ with .Params.heroImage }}
+    {{ $heroPos := $.Params.heroPosition | default "center" }}
+    <section class="hero hero-image fade-in">
+      <img class="hero-bg" src="{{ . }}" alt="{{ $.Params.heroAlt | default $.Title }}" style="object-position: {{ $heroPos }};">
+      <div class="container hero-content">
+        <h1>{{ $.Title }}</h1>
+      </div>
+    </section>
+  {{ end }}
+
+  <section class="container page-header">
+    <a class="icon-back" href="/" aria-label="Go back" onclick="if (window.history.length > 1) { event.preventDefault(); history.back(); }">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+        <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a>
+    {{ if not .Params.heroImage }}<h1>{{ .Title }}</h1>{{ end }}
+  </section>
+  <section class="container section">
+    <article class="card fade-in">
+      {{ .Content }}
+    </article>
+  </section>
+{{ end }}

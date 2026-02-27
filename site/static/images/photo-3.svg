@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#132f53"/>
+  <circle cx="250" cy="170" r="88" fill="#ffb545"/>
+  <rect x="60" y="360" width="1080" height="220" rx="20" fill="#214f83"/>
+  <path d="M170 420h860l-100-110H280z" fill="#3a75af"/>
+  <text x="80" y="108" font-size="58" font-family="Inter, Arial" fill="#f6fbff" font-weight="700">Young Eagles</text>
+  <text x="80" y="158" font-size="30" font-family="Inter, Arial" fill="#d2e8ff">First flights. Lasting inspiration.</text>
+</svg>

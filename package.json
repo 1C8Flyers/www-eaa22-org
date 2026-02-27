@@ -1,0 +1,20 @@
+{
+  "name": "eaa22-hugo-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch:events": "node scripts/fetch-events.mjs",
+    "extract:brand": "node scripts/extract-brand-colors.mjs",
+    "build:prepare": "npm run fetch:events && npm run extract:brand",
+    "build:hugo": "hugo --source site --destination public --minify",
+    "build": "npm run build:prepare && npm run build:hugo",
+    "dev:docker": "npm install && npm run build:prepare && hugo server --source site --bind 0.0.0.0 --port 1313 --disableFastRender"
+  },
+  "dependencies": {
+    "ical-expander": "^3.1.0",
+    "luxon": "^3.5.0",
+    "node-vibrant": "^4.0.3",
+    "playwright": "^1.51.0"
+  }
+}

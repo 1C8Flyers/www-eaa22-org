@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#e8f2fc"/>
+  <rect y="430" width="1200" height="270" fill="#cddff2"/>
+  <path d="M160 450h880l-120-130H280z" fill="#a9c6e3"/>
+  <path d="M240 420l220-90 280 70-10 35-130 18-20 28h-55l-16-20-130 18-35 20h-45z" fill="#1f4f83"/>
+  <text x="80" y="98" font-size="56" font-family="Inter, Arial" fill="#183f6d" font-weight="700">Ramp Life</text>
+  <text x="80" y="148" font-size="30" font-family="Inter, Arial" fill="#355d86">Fly-ins • Meetups • Mentoring</text>
+</svg>

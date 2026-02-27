@@ -1,0 +1,39 @@
+{{ define "main" }}
+  {{ if eq .Section "programs" }}
+    <section class="hero hero-image fade-in">
+      <img class="hero-bg" src="/images/projects.jpeg" alt="Chapter members working on an aircraft project in the hangar">
+      <div class="container hero-content">
+        <h1>{{ .Title }}</h1>
+      </div>
+    </section>
+  {{ else if eq .Section "about" }}
+    <section class="hero hero-image about-hero fade-in">
+      <img class="hero-bg" src="/images/about.png" alt="EAA Chapter 22 members gathered together at the chapter meeting space">
+      <div class="container hero-content">
+        <h1>{{ .Title }}</h1>
+      </div>
+    </section>
+  {{ else }}
+    <section class="container page-header">
+      <h1>{{ .Title }}</h1>
+    </section>
+  {{ end }}
+
+  <section class="container section">
+    {{ if .Content }}
+      <article class="card fade-in" style="margin-bottom: 1rem;">{{ .Content }}</article>
+    {{ end }}
+
+    {{ if gt (len .Pages) 0 }}
+      <div class="grid programs fade-in">
+        {{ range .Pages.ByTitle }}
+          <article class="card">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Summary | plainify | truncate 140 }}</p>
+            <a href="{{ .RelPermalink }}">Open →</a>
+          </article>
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
+{{ end }}

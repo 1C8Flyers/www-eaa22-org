@@ -1,0 +1,31 @@
+services:
+  dev:
+    build:
+      context: .
+      target: dev
+    working_dir: /workspace
+    environment:
+      GOOGLE_CALENDAR_API_KEY: ${GOOGLE_CALENDAR_API_KEY:-}
+      EVENTS_DAYS_AHEAD: ${EVENTS_DAYS_AHEAD:-180}
+      BRAND_SOURCE_URL: ${BRAND_SOURCE_URL:-https://www.eaa320.com/}
+    ports:
+      - "1313:1313"
+    volumes:
+      - ./:/workspace
+    command: npm run dev:docker
+
+  web:
+    build:
+      context: .
+      target: runtime
+      args:
+        GOOGLE_CALENDAR_API_KEY: ${GOOGLE_CALENDAR_API_KEY:-}
+        EVENTS_DAYS_AHEAD: ${EVENTS_DAYS_AHEAD:-180}
+        BRAND_SOURCE_URL: ${BRAND_SOURCE_URL:-https://www.eaa320.com/}
+    environment:
+      GOOGLE_CALENDAR_API_KEY: ${GOOGLE_CALENDAR_API_KEY:-}
+      EVENTS_DAYS_AHEAD: ${EVENTS_DAYS_AHEAD:-180}
+      BRAND_SOURCE_URL: ${BRAND_SOURCE_URL:-https://www.eaa320.com/}
+    ports:
+      - "8080:80"
+    restart: unless-stopped

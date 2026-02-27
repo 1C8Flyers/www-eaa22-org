@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//EAA Chapter 22//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:vmc-imc-club-2026-03-24@eaa22.org
+DTSTAMP:20260227T052539Z
+DTSTART:20260325T000000Z
+DTEND:20260325T013000Z
+SUMMARY:VMC/IMC Club
+DESCRIPTION:Join us for our monthly EAA VMC/IMC Club session — an interactive hangar-style discussion focused on real-world flying decisions. Using FAA safety scenarios and guided discussion\, we’ll work through weather analysis\, risk management\, aeronautical decision making\, and “what would you do?” moments in both VFR and IFR operations.\n\nOpen to all pilots and aviation enthusiasts. Come share experiences\, sharpen your skills\, and learn from each other in a relaxed\, no-pressure environment focused on safer flying.
+LOCATION:EAA Chapter 22 - Cottonwood Airport\, 5105 Auburn St\, Rockford\, IL 61101\, USA
+URL:
+END:VEVENT
+END:VCALENDAR

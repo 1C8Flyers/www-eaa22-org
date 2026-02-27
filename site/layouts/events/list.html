@@ -1,0 +1,86 @@
+{{ define "main" }}
+  <section class="hero hero-image events-hero fade-in">
+    <img class="hero-bg" src="/images/events.PNG" alt="Aircraft and chapter members gathered on the grass with planes flying in the distance">
+    <div class="container hero-content">
+      <h1>Events at Cottonwood Airport</h1>
+      <p class="hero-subheadline">Where aviation meets community.</p>
+      <div class="cta-row">
+        <a class="button primary" href="#upcoming-events">Upcoming Events</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section fade-in">
+    <h2>What to Expect</h2>
+    <article class="card">
+      <p>Our events are informal, welcoming, and centered around a shared passion for aviation. Some gatherings are educational, some are social, and some are hands-on — but all of them are built around connecting people through flight.</p>
+    </article>
+  </section>
+
+  <section class="container section" id="upcoming-events">
+    <h2>Upcoming Events</h2>
+    <div class="pill-group" id="category-filters">
+      <button class="pill active" data-category="all">All</button>
+      <button class="pill" data-category="Young Eagles">Young Eagles</button>
+      <button class="pill" data-category="Civil Air Patrol">Civil Air Patrol</button>
+      <button class="pill" data-category="Meeting">Meeting</button>
+      <button class="pill" data-category="Fly-In">Fly-In</button>
+      <button class="pill" data-category="General">General</button>
+    </div>
+
+    {{ $pages := sort .Pages "Params.start" "asc" }}
+    {{ $scratch := newScratch }}
+    {{ range $pages }}
+      {{ $monthKey := (time .Params.start | time.Format "2006-01") }}
+      {{ if ne ($scratch.Get "month") $monthKey }}
+        {{ if $scratch.Get "openGroup" }}</div>{{ end }}
+        <div class="month-group fade-in">
+          <h2 class="month-title">{{ time .Params.start | time.Format "January 2006" }}</h2>
+          <div class="grid events">
+        {{ $scratch.Set "month" $monthKey }}
+        {{ $scratch.Set "openGroup" true }}
+      {{ end }}
+
+      <article class="card event-card" data-category="{{ .Params.category }}">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="meta">
+          {{ if .Params.allDay }}
+            {{ time .Params.start | time.Format "Mon, Jan 2" }} • All day
+          {{ else }}
+            {{ time .Params.start | time.Format "Mon, Jan 2 • 3:04 PM" }}
+          {{ end }}
+          {{ with .Params.location }} • {{ . }}{{ end }}
+        </p>
+        <p class="meta">Click below for details.</p>
+        <div class="cta-row">
+          <a class="button primary" href="{{ .RelPermalink }}">Details</a>
+          <a class="button secondary" href="{{ .Params.icsPath }}">Add to Calendar (.ics)</a>
+        </div>
+      </article>
+    {{ end }}
+
+    {{ if $scratch.Get "openGroup" }}</div></div>{{ end }}
+  </section>
+
+  <script>
+    (() => {
+      const buttons = Array.from(document.querySelectorAll('#category-filters .pill'));
+      const cards = Array.from(document.querySelectorAll('.event-card'));
+
+      function applyFilter(category) {
+        for (const card of cards) {
+          const value = card.getAttribute('data-category');
+          card.style.display = category === 'all' || category === value ? '' : 'none';
+        }
+      }
+
+      for (const button of buttons) {
+        button.addEventListener('click', () => {
+          for (const b of buttons) b.classList.remove('active');
+          button.classList.add('active');
+          applyFilter(button.getAttribute('data-category'));
+        });
+      }
+    })();
+  </script>
+{{ end }}

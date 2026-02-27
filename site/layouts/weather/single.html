@@ -1,0 +1,12 @@
+{{ define "main" }}
+  {{ $embedURL := .Params.embedURL | default "https://weather.eaa22.org/" }}
+  <section class="weather-embed-page fade-in" aria-label="Weather">
+    <iframe
+      class="weather-embed-frame"
+      src="{{ $embedURL }}"
+      title="EAA Chapter 22 Weather"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
+  </section>
+{{ end }}

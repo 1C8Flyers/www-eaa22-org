@@ -1,0 +1,75 @@
+baseURL = "https://www.eaa22.org/"
+languageCode = "en-us"
+title = "EAA Chapter 22"
+timeZone = "America/Chicago"
+
+[params]
+  description = "EAA Chapter 22 — Cottonwood Airport"
+
+[permalinks]
+  events = "/events/:slug/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Events"
+    url = "/events/"
+    weight = 10
+  [[menu.main]]
+    name = "Programs"
+    url = "/programs/"
+    weight = 20
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 30
+  [[menu.main]]
+    name = "Get Involved"
+    identifier = "get-involved"
+    url = "#"
+    weight = 40
+  [[menu.main]]
+    name = "More"
+    identifier = "more"
+    url = "#"
+    weight = 50
+
+  [[menu.main]]
+    name = "Join"
+    url = "/join/"
+    parent = "get-involved"
+    weight = 41
+  [[menu.main]]
+    name = "Submit Photo"
+    url = "/submit-photo/"
+    parent = "get-involved"
+    weight = 42
+
+  [[menu.main]]
+    name = "Weather"
+    url = "/weather/"
+    parent = "more"
+    weight = 51
+  [[menu.main]]
+    name = "Donate"
+    url = "/donate/"
+    parent = "more"
+    weight = 52
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    parent = "more"
+    weight = 53
+
+  [[menu.cta]]
+    name = "Donate"
+    url = "/donate/"
+    weight = 1

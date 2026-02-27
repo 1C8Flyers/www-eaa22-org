@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 544 544" role="img" aria-label="EAA Chapter 22 Rockford Illinois">
+  <defs>
+    <style>
+      .blue{fill:#334AA5}
+      .gold{fill:#FFD400}
+      .white{fill:#F7F9FC}
+      .txt{font-family:Arial,Helvetica,sans-serif;font-weight:700;letter-spacing:2px}
+    </style>
+  </defs>
+
+  <circle cx="272" cy="272" r="265" class="gold"/>
+  <circle cx="272" cy="272" r="242" class="blue"/>
+
+  <circle cx="272" cy="272" r="188" class="gold"/>
+  <circle cx="272" cy="272" r="166" class="blue"/>
+
+  <path class="white" d="M210 140l22 0 29 115 73-1 4 12-55 22 16 54-16 0-22-48-95 30-17-9 73-40-16-63-41-8-22-9 36-10z"/>
+
+  <path class="gold" d="M184 116h186l20 86h-186q-24 0-30-24z"/>
+  <path class="gold" d="M230 325h173l20 92h-152q-22 0-27-20z"/>
+
+  <text x="276" y="190" text-anchor="middle" class="txt blue" font-size="62">CHAPTER</text>
+  <text x="318" y="309" text-anchor="middle" class="txt white" font-size="110">22</text>
+  <text x="317" y="421" text-anchor="middle" class="txt blue" font-size="86">EAA</text>
+
+  <text x="272" y="83" text-anchor="middle" class="txt white" font-size="72">ROCKFORD</text>
+  <text x="272" y="522" text-anchor="middle" class="txt white" font-size="72">ILLINOIS</text>
+</svg>

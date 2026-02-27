@@ -1,0 +1,79 @@
+{{ define "main" }}
+  {{ $events := sort site.Data.events "start" "asc" }}
+  {{ $next := cond (gt (len $events) 0) (index $events 0) nil }}
+
+  <section class="hero hero-image home-hero fade-in">
+    <img class="hero-bg" src="/images/three_champs.jpg" alt="Three aircraft flying in formation over a snowy field">
+    <div class="container hero-content">
+      <h1>Aviation. Community. Opportunity.</h1>
+      <p>Experimental aircraft, hands-on learning, fly-ins, and immersive aviation experiences — bringing together pilots, builders, and future aviators.</p>
+      <div class="cta-row">
+        <a class="button primary" href="/events/">Upcoming Events</a>
+        <a class="button secondary" href="/programs/">Join / Get Involved</a>
+        <a class="button secondary" href="/donate/">Donate</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section fade-in">
+    <h2>Next Up</h2>
+    {{ with $next }}
+      <article class="card">
+        <h3><a href="/events/{{ .slug }}/">{{ .title }}</a></h3>
+        <p class="meta">
+          {{ if .allDay }}
+            {{ time .start | time.Format "Mon, Jan 2" }} • All day
+          {{ else }}
+            {{ time .start | time.Format "Mon, Jan 2 • 3:04 PM" }}
+          {{ end }}
+          {{ with .location }} • {{ . }}{{ end }}
+        </p>
+        <p class="meta">Click below for details.</p>
+        <div class="cta-row">
+          <a class="button primary" href="/events/{{ .slug }}/">Details</a>
+          <a class="button secondary" href="{{ .icsPath }}">Add to Calendar (.ics)</a>
+        </div>
+      </article>
+    {{ else }}
+      <article class="card">
+        <h3>No upcoming events found yet.</h3>
+        <p class="meta">Calendar sync may still be running. Please check back soon.</p>
+      </article>
+    {{ end }}
+  </section>
+
+  <section class="container section fade-in">
+    <h2>What we do</h2>
+    <div class="grid programs">
+      <article class="card">
+        <h3>Young Eagles</h3>
+        <p>Inspiring youth through introductory flights and aviation mentorship.</p>
+        <a href="/programs/young-eagles/">Learn more →</a>
+      </article>
+      <article class="card">
+        <h3>Pilot Ground School</h3>
+        <p>Accessible, community-driven learning for future and current pilots.</p>
+        <a href="/programs/pilot-ground-school/">Learn more →</a>
+      </article>
+      <article class="card">
+        <h3>Fly-ins & Events</h3>
+        <p>Regular chapter meetups, hangar talks, and field-friendly social events.</p>
+        <a href="/events/">View events →</a>
+      </article>
+      <article class="card">
+        <h3>Community</h3>
+        <p>Volunteerism, outreach, and aviation camaraderie across Cottonwood.</p>
+        <a href="/about/">Our mission →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="container section fade-in">
+    <h2>Photo Strip</h2>
+    <div class="photo-strip">
+      <img src="/images/photo-1.svg" alt="Chapter members at the airport">
+      <img src="/images/photo-2.svg" alt="Aircraft parked on ramp">
+      <img src="/images/photo-3.svg" alt="Young Eagles program day">
+    </div>
+  </section>
+{{ end }}

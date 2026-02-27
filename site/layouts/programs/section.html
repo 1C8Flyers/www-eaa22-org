@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <section class="hero hero-image fade-in">
+    <img class="hero-bg" src="/images/projects.jpeg" alt="Chapter members working on an aircraft project in the hangar">
+    <div class="container hero-content">
+      <h1>{{ .Title }}</h1>
+      <p>EAA Chapter 22 programs are built to grow participation in aviation through education, mentorship, and hands-on community activity.</p>
+    </div>
+  </section>
+
+  <section class="container section fade-in">
+    {{ if .Content }}
+      <article class="card" style="margin-bottom: 1rem;">{{ .Content }}</article>
+    {{ end }}
+
+    {{ if gt (len .Pages) 0 }}
+      <div class="grid programs">
+        {{ range .Pages.ByTitle }}
+          <article class="card">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Summary | plainify | truncate 140 }}</p>
+            <a href="{{ .RelPermalink }}">Open →</a>
+          </article>
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
+{{ end }}
