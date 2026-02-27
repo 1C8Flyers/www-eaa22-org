@@ -41,6 +41,10 @@ timeZone = "America/Chicago"
     identifier = "more"
     url = "#"
     weight = 50
+  [[menu.main]]
+    name = "Airport Info"
+    url = "/airport-info/"
+    weight = 60
 
   [[menu.main]]
     name = "Join"
