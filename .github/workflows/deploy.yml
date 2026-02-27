@@ -24,7 +24,7 @@ jobs:
       EVENTS_DAYS_AHEAD: ${{ vars.EVENTS_DAYS_AHEAD || '180' }}
       PHOTO_FEED_URL: ${{ vars.PHOTO_FEED_URL || 'https://script.google.com/macros/s/AKfycbzEHSF9l1Bv2-oWE_axQP2EZxHz8hXS8sHFcA7f4iSFpBgknkNh9e8BzevqEA9QU8u3/exec' }}
       PHOTO_STRIP_LIMIT: ${{ vars.PHOTO_STRIP_LIMIT || '12' }}
-      HUGO_BASEURL: ${{ vars.HUGO_BASEURL || 'https://1c8flyers.github.io/' }}
+      HUGO_BASEURL: ${{ vars.HUGO_BASEURL || 'https://www.eaa22.org/' }}
       HUGO_RELATIVEURLS: true
     steps:
       - name: Checkout

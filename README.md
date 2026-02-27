@@ -20,6 +20,14 @@ Modern Hugo site for EAA Chapter 22 with automatic Google Calendar event ingesti
 - `EVENTS_DAYS_AHEAD` (optional, default: `180`)
 - `PHOTO_FEED_URL` (optional, default: chapter Apps Script photo feed)
 - `PHOTO_STRIP_LIMIT` (optional, default: `12`)
+- `HUGO_BASEURL` (optional, deployment canonical URL, default: `https://www.eaa22.org/`)
+
+## GitHub Pages + Custom Domain
+
+- GitHub Pages custom domain should be set to `www.eaa22.org`
+- Workflow default base URL is `https://www.eaa22.org/`
+- Optional repo variable override:
+  - `HUGO_BASEURL` (if you ever need to temporarily deploy to a different domain)
 
 ## Local Dev (Docker)
 
