@@ -11,3 +11,4 @@ public/
 /site/static/ics/*.ics
 /site/data/events.json
 /site/data/photos.json
+/site/static/images/photo-feed/

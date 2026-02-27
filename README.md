@@ -56,11 +56,14 @@ At build/start time:
      - `site/content/events/<slug>.md`
      - `site/static/ics/<slug>.ics`
 
-  2. `scripts/fetch-photos.mjs`
-     - Fetches chapter photo feed JSON from `PHOTO_FEED_URL`
-     - Normalizes image entries and stores:
-    - `site/data/photos.json`
-    - `site/data/photos.cache.json` (last successful fetch)
+2. `scripts/fetch-photos.mjs`
+   - Calls photo API list endpoint at `PHOTO_FEED_URL?action=list`
+   - For each item, fetches `imageApi` JSON payload with base64 image data
+   - Writes generated static images to:
+     - `site/static/images/photo-feed/`
+   - Stores normalized strip metadata in:
+     - `site/data/photos.json`
+     - `site/data/photos.cache.json` (last successful fetch)
 
   3. `scripts/extract-brand-colors.mjs`
    - Screenshots existing site homepage
