@@ -4,3 +4,9 @@ public/
 /site/.hugo_build.lock
 *.log
 .DS_Store
+
+# Generated event artifacts (written by scripts/fetch-events.mjs)
+/site/content/events/*.md
+!/site/content/events/_index.md
+/site/static/ics/*.ics
+/site/data/events.json
