@@ -49,6 +49,14 @@ function sanitizeBaseName(name = "") {
     .slice(0, 60);
 }
 
+function shuffleInPlace(items) {
+  for (let index = items.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [items[index], items[randomIndex]] = [items[randomIndex], items[index]];
+  }
+  return items;
+}
+
 function normalizeCachedPhoto(photo, index) {
   if (!photo?.src) return null;
   return {
@@ -119,7 +127,7 @@ async function fetchPhotosFromApi() {
     throw new Error("List response missing photos array");
   }
 
-  const photos = listPayload.photos.slice(0, Math.max(1, PHOTO_STRIP_LIMIT));
+  const photos = shuffleInPlace([...listPayload.photos]).slice(0, Math.max(1, PHOTO_STRIP_LIMIT));
   await fs.mkdir(STATIC_IMAGES_DIR, { recursive: true });
   await clearGeneratedPhotos();
 
