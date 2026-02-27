@@ -71,9 +71,22 @@
   <section class="container section fade-in">
     <h2>Photo Strip</h2>
     <div class="photo-strip">
-      <img src="/images/photo-1.svg" alt="Chapter members at the airport">
-      <img src="/images/photo-2.svg" alt="Aircraft parked on ramp">
-      <img src="/images/photo-3.svg" alt="Young Eagles program day">
+      {{ $photos := slice }}
+      {{ with site.Data.photos }}
+        {{ with .photos }}
+          {{ $photos = . }}
+        {{ end }}
+      {{ end }}
+
+      {{ if gt (len $photos) 0 }}
+        {{ range first 6 $photos }}
+          <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy">
+        {{ end }}
+      {{ else }}
+        <img src="/images/photo-1.svg" alt="Chapter members at the airport" loading="lazy">
+        <img src="/images/photo-2.svg" alt="Aircraft parked on ramp" loading="lazy">
+        <img src="/images/photo-3.svg" alt="Young Eagles program day" loading="lazy">
+      {{ end }}
     </div>
   </section>
 {{ end }}

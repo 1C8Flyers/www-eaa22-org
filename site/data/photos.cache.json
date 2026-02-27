@@ -1,0 +1,102 @@
+{
+  "updatedAt": "2026-02-27T18:49:11.433Z",
+  "count": 12,
+  "photos": [
+    {
+      "id": "1-s11bV5IUer60bDhUVCt7JEw24GXbsc3",
+      "name": "IMG_5186.jpeg",
+      "src": "https://drive.google.com/thumbnail?id=1-s11bV5IUer60bDhUVCt7JEw24GXbsc3&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1-s11bV5IUer60bDhUVCt7JEw24GXbsc3",
+      "alt": "IMG 5186",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "1bTuvEZlM-dMUGkWIye6k0j3aC4CHyKTZ",
+      "name": "IMG_0386.JPG",
+      "src": "https://drive.google.com/thumbnail?id=1bTuvEZlM-dMUGkWIye6k0j3aC4CHyKTZ&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1bTuvEZlM-dMUGkWIye6k0j3aC4CHyKTZ",
+      "alt": "IMG 0386",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "1u6fx0Mum43bs37rCAFrbbtBABp-vEi2x",
+      "name": "007JulyEsparza.jpg",
+      "src": "https://drive.google.com/thumbnail?id=1u6fx0Mum43bs37rCAFrbbtBABp-vEi2x&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1u6fx0Mum43bs37rCAFrbbtBABp-vEi2x",
+      "alt": "007JulyEsparza",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "1rz3vX0VDHg07Rboth26HzCiZMdWSfEX5",
+      "name": "009SeptemberBrianSLew.jpg",
+      "src": "https://drive.google.com/thumbnail?id=1rz3vX0VDHg07Rboth26HzCiZMdWSfEX5&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1rz3vX0VDHg07Rboth26HzCiZMdWSfEX5",
+      "alt": "009SeptemberBrianSLew",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "1PDvYqfPG3Z6F2tH300P8RZ0kFbvSjslU",
+      "name": "011NovemberBWJ_8943.JPG",
+      "src": "https://drive.google.com/thumbnail?id=1PDvYqfPG3Z6F2tH300P8RZ0kFbvSjslU&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1PDvYqfPG3Z6F2tH300P8RZ0kFbvSjslU",
+      "alt": "011NovemberBWJ 8943",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "1ScTx29eHakqy_sTJDy5afTcaWkbkySMg",
+      "name": "010OctoberBargren3.jpg",
+      "src": "https://drive.google.com/thumbnail?id=1ScTx29eHakqy_sTJDy5afTcaWkbkySMg&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1ScTx29eHakqy_sTJDy5afTcaWkbkySMg",
+      "alt": "010OctoberBargren3",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "1cygU2kxc6PA6bWHAaozartKmsmKyV-E2",
+      "name": "008AugustCurt Lewis 5.jpg",
+      "src": "https://drive.google.com/thumbnail?id=1cygU2kxc6PA6bWHAaozartKmsmKyV-E2&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1cygU2kxc6PA6bWHAaozartKmsmKyV-E2",
+      "alt": "008AugustCurt Lewis 5",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "1XYjifmvdD6Ca00QM2WcFijbDvkSQeOTt",
+      "name": "007JulyEsparza1.jpg",
+      "src": "https://drive.google.com/thumbnail?id=1XYjifmvdD6Ca00QM2WcFijbDvkSQeOTt&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1XYjifmvdD6Ca00QM2WcFijbDvkSQeOTt",
+      "alt": "007JulyEsparza1",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "14nuFwryNGZRZI51jUd3_oTMzoPE836BT",
+      "name": "003MarchBrianS1.jpg",
+      "src": "https://drive.google.com/thumbnail?id=14nuFwryNGZRZI51jUd3_oTMzoPE836BT&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=14nuFwryNGZRZI51jUd3_oTMzoPE836BT",
+      "alt": "003MarchBrianS1",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "1Pglzy30YtpuvoMVR7sdM4Q61RUfHTeUn",
+      "name": "006JuneCurt Lewis.jpg",
+      "src": "https://drive.google.com/thumbnail?id=1Pglzy30YtpuvoMVR7sdM4Q61RUfHTeUn&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1Pglzy30YtpuvoMVR7sdM4Q61RUfHTeUn",
+      "alt": "006JuneCurt Lewis",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "1HH8XRZqAyJAANCNyL3PstwLZPJAX15JU",
+      "name": "005MayStroup3.jpg",
+      "src": "https://drive.google.com/thumbnail?id=1HH8XRZqAyJAANCNyL3PstwLZPJAX15JU&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1HH8XRZqAyJAANCNyL3PstwLZPJAX15JU",
+      "alt": "005MayStroup3",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "1SjPxv99fZjdAb_AoLmU1VDnGeWZw55px",
+      "name": "004AprilSelchow1.jpg",
+      "src": "https://drive.google.com/thumbnail?id=1SjPxv99fZjdAb_AoLmU1VDnGeWZw55px&sz=w1000",
+      "full": "https://drive.google.com/uc?export=view&id=1SjPxv99fZjdAb_AoLmU1VDnGeWZw55px",
+      "alt": "004AprilSelchow1",
+      "mimeType": "image/jpeg"
+    }
+  ]
+}

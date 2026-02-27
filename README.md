@@ -10,6 +10,7 @@ Modern Hugo site for EAA Chapter 22 with automatic Google Calendar event ingesti
 - Category parsing from title prefixes (`YE:`, `Meeting:`, `Fly-In:`)
 - Event detail pages generated at build time
 - Per-event `.ics` files generated at build time
+- Home photo strip populated from Google Drive feed via Apps Script
 - Build-time palette extraction from `BRAND_SOURCE_URL` (default: https://www.eaa320.com/) via Playwright + node-vibrant
 - Graceful fallback to cached events and default brand palette
 - Docker multi-stage production image + dev workflow
@@ -18,6 +19,8 @@ Modern Hugo site for EAA Chapter 22 with automatic Google Calendar event ingesti
 
 - `GOOGLE_CALENDAR_API_KEY` (optional, only used if ICS fetch fails)
 - `EVENTS_DAYS_AHEAD` (optional, default: `180`)
+- `PHOTO_FEED_URL` (optional, default: chapter Apps Script photo feed)
+- `PHOTO_STRIP_LIMIT` (optional, default: `12`)
 - `BRAND_SOURCE_URL` (optional, default: `https://www.eaa320.com/`)
 
 ## Local Dev (Docker)
@@ -53,7 +56,13 @@ At build/start time:
      - `site/content/events/<slug>.md`
      - `site/static/ics/<slug>.ics`
 
-2. `scripts/extract-brand-colors.mjs`
+  2. `scripts/fetch-photos.mjs`
+     - Fetches chapter photo feed JSON from `PHOTO_FEED_URL`
+     - Normalizes image entries and stores:
+    - `site/data/photos.json`
+    - `site/data/photos.cache.json` (last successful fetch)
+
+  3. `scripts/extract-brand-colors.mjs`
    - Screenshots existing site homepage
    - Extracts palette and writes:
      - `site/assets/css/brand.css`
