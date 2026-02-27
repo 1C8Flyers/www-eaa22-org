@@ -47,3 +47,33 @@
     </div>
   </div>
 </header>
+
+<script>
+(() => {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  const dropdowns = Array.from(header.querySelectorAll('details.nav-dropdown'));
+  if (!dropdowns.length) return;
+
+  const closeAllExcept = (keepOpen) => {
+    dropdowns.forEach((dropdown) => {
+      if (dropdown !== keepOpen) dropdown.removeAttribute('open');
+    });
+  };
+
+  dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener('toggle', () => {
+      if (dropdown.open) closeAllExcept(dropdown);
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!header.contains(event.target)) closeAllExcept(null);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeAllExcept(null);
+  });
+})();
+</script>
