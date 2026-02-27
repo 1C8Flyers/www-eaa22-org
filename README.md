@@ -29,6 +29,16 @@ Modern Hugo site for EAA Chapter 22 with automatic Google Calendar event ingesti
 - Optional repo variable override:
   - `HUGO_BASEURL` (if you ever need to temporarily deploy to a different domain)
 
+### DNS Checklist (Cloudflare)
+
+- `A` `eaa22.org` → `185.199.108.153` (`DNS only`)
+- `A` `eaa22.org` → `185.199.109.153` (`DNS only`)
+- `A` `eaa22.org` → `185.199.110.153` (`DNS only`)
+- `A` `eaa22.org` → `185.199.111.153` (`DNS only`)
+- `CNAME` `www` → `1c8flyers.github.io` (`DNS only`)
+- In GitHub Pages, set custom domain to `www.eaa22.org` and enable **Enforce HTTPS** after cert issuance
+- (Recommended) add a 301 redirect from `eaa22.org/*` to `https://www.eaa22.org/$1`
+
 ## Local Dev (Docker)
 
 - Start live Hugo dev server:
