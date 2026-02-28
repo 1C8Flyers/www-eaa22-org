@@ -6,7 +6,7 @@ title: "Chapter History"
 
 *Compiled from chapter records and notes, including work by former newsletter editor Nick Lung.*
 
-EAA Chapter 22 began in 1957, when a small group of local pilots and EAA members met in Frank Murray’s office at Cottonwood. Early charter members included names long associated with Rockford aviation, and the chapter quickly became a hub for builders, flyers, and volunteers.
+EAA Chapter 22 began in 1956, when a small group of local pilots and EAA members met in Frank Murray’s office at Cottonwood. Early charter members included names long associated with Rockford aviation, and the chapter quickly became a hub for builders, flyers, and volunteers.
 
 By 1959, the chapter had reorganized, set dues, and formalized operations. Through the 1960s, members met in a variety of local spaces, published the *Touch & Go* newsletter, supported EAA convention activities in Rockford, and repeatedly ran successful aircraft-engine raffle efforts that helped support museum development.
 
