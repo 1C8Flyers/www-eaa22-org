@@ -450,6 +450,115 @@ a:hover { text-decoration: underline; }
   animation: fadeIn .45s ease both;
 }
 
+.donate-hero::before {
+  background: linear-gradient(150deg, rgba(6, 20, 36, 0.78), rgba(6, 20, 36, 0.52));
+}
+
+.donate-hero-content {
+  align-content: center;
+  text-align: center;
+  justify-items: center;
+  min-height: clamp(420px, 62vh, 700px);
+  padding-bottom: 4.25rem;
+}
+
+.donate-hero-content p {
+  max-width: 78ch;
+}
+
+.donate-hero-cta {
+  justify-content: center;
+}
+
+.donate-section {
+  padding-top: 3.25rem;
+  padding-bottom: 3.25rem;
+}
+
+.donate-section-title {
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+.donate-impact-grid {
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+.donate-impact-card {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.donate-impact-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.donate-impact-card p {
+  margin: 0;
+}
+
+.donate-impact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--brand-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-primary);
+  background: color-mix(in oklab, var(--brand-primary) 8%, white);
+}
+
+.donate-tint-wrap {
+  background: color-mix(in oklab, var(--brand-accent) 35%, white);
+  border-top: 1px solid var(--brand-border);
+  border-bottom: 1px solid var(--brand-border);
+}
+
+.donate-tint-wrap ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.donate-ways-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.donate-ways-list .card {
+  padding: 1rem 1.2rem;
+}
+
+.donate-ways-list p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.donate-closing {
+  text-align: center;
+  max-width: 76ch;
+}
+
+.donate-closing h2,
+.donate-closing p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.donate-closing-cta {
+  justify-content: center;
+}
+
+@media (min-width: 760px) {
+  .donate-impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
