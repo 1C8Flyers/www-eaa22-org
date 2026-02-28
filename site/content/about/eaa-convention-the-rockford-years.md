@@ -1,5 +1,8 @@
 ---
 title: "The Rockford Years"
+heroImage: "/images/eaa-rockford.png"
+heroAlt: "Historic entrance sign from the EAA Fly-In Convention years in Rockford"
+heroPosition: "center 35%"
 ---
 
 # The EAA Convention — Rockford Years (1959–1969)
@@ -31,3 +34,11 @@ By 1969, convention growth had outpaced available facilities in Rockford. That y
 ## Enduring Legacy
 
 Although the convention moved, the Rockford years remain foundational to EAA’s identity. The values that defined that era — innovation, volunteerism, fellowship, and hands-on aviation — continue to shape Chapter 22 and EAA communities everywhere.
+
+## Photo & History Sources
+
+- [1961 EAA Fly-In (Rockford) — EAA Chapter 110 Photo Gallery](https://flyeaa110.org/wp/photo-gallery/1961-eaa-fly-in-rockford/)
+- [Rockford EAA Annual Convention & Fly-In (1965) — ABPic](https://abpic.co.uk/pictures/airshow/Rockford%20-%20EAA%20Annual%20Convention%20and%20Fly%20in%20-%201965)
+- [EAA Convention Rockford (1966) — Pinterest Archive Pin](https://www.pinterest.com/pin/eaa-convention-rockford-1966--578149670902703602/)
+- [Chicago/Rockford International (KRFD/RFD) Historical Photos — AirHistory.net](https://www.airhistory.net/location/10045/Chicago-Rockford-International-KRFD-RFD)
+- [EAA Convention Photo Album — Flickr (Curt DeBaun)](https://flickr.com/photos/curtdebaun/albums/72157623130659238/page7)
