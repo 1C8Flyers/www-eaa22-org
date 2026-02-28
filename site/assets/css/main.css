@@ -236,8 +236,8 @@ a:hover { text-decoration: underline; }
   left: 0;
   right: 0;
   bottom: 0;
-  height: 34%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--brand-bg) 85%);
+  height: 22%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--brand-bg) 100%);
   z-index: 2;
 }
 
@@ -338,6 +338,10 @@ a:hover { text-decoration: underline; }
 
 .section {
   padding: 2rem 0;
+}
+
+.home-why {
+  padding-top: 2.75rem;
 }
 
 .section h2 {
