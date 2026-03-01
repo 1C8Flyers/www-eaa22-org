@@ -21,6 +21,14 @@ Modern Hugo site for EAA Chapter 22 with automatic Google Calendar event ingesti
 - `PHOTO_FEED_URL` (optional, default: chapter Apps Script photo feed)
 - `PHOTO_STRIP_LIMIT` (optional, default: `12`)
 - `HUGO_BASEURL` (optional, deployment canonical URL, default: `https://www.eaa22.org/`)
+- `HUGO_GOOGLE_ANALYTICS_ID` (optional, GA4 Measurement ID like `G-XXXXXXXXXX`)
+
+## Analytics (GA4)
+
+- Primary setting: `site/hugo.toml` → `[services.googleAnalytics]` → `ID`
+- Current configured ID: `G-GF9NRRXFN8`
+- Optional override: set env var `HUGO_GOOGLE_ANALYTICS_ID` during build/deploy
+- Tracking snippet is injected globally via `site/layouts/_default/baseof.html`
 
 ## GitHub Pages + Custom Domain
 

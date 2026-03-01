@@ -32,6 +32,8 @@ ENV EVENTS_DAYS_AHEAD=${EVENTS_DAYS_AHEAD}
 RUN npm run build:prepare
 
 FROM klakegg/hugo:ext-alpine AS hugo-build
+ARG HUGO_GOOGLE_ANALYTICS_ID=""
+ENV HUGO_GOOGLE_ANALYTICS_ID=${HUGO_GOOGLE_ANALYTICS_ID}
 WORKDIR /src
 COPY --from=prep /workspace/site /src/site
 RUN hugo --source /src/site --destination /src/public --minify

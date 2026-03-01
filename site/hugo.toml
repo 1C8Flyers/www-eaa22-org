@@ -6,6 +6,10 @@ timeZone = "America/Chicago"
 [params]
   description = "EAA Chapter 22 — Cottonwood Airport"
 
+[services]
+  [services.googleAnalytics]
+    ID = "G-GF9NRRXFN8"
+
 [permalinks]
   events = "/events/:slug/"
 
