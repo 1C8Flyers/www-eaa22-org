@@ -453,6 +453,41 @@ a:hover { text-decoration: underline; }
   color: var(--brand-muted);
 }
 
+.footer-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.footer-brand {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.footer-title {
+  color: var(--brand-text);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 0.35rem 1rem;
+}
+
+.footer-links a {
+  color: var(--brand-muted);
+}
+
+@media (max-width: 640px) {
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}
+
 .fade-in {
   animation: fadeIn .45s ease both;
 }
