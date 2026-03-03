@@ -1,5 +1,7 @@
 ---
 title: "Young Eagles"
+heroImage: "/images/young-eagles-hero.jpeg"
+heroAlt: "Young Eagles participant and volunteer standing in front of an aircraft at Cottonwood Airport"
 ---
 
 The **Young Eagles Program** is EAA's flagship youth aviation program and has introduced millions of young people to flight.
