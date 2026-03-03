@@ -1,6 +1,10 @@
 ---
 title: "Young Eagles"
 description: "Free introductory flights for youth ages 8–17 through EAA Chapter 22 at Cottonwood Airport in Rockford, Illinois."
+layout: "young-eagles"
+heroImage: "/images/young-eagles-hero.png"
+heroAlt: "Young Eagles participants preparing for a flight at Cottonwood Airport"
+heroPosition: "center"
 ---
 
 Young Eagles is EAA’s flagship youth aviation program — introducing young people to the world of flight through safe, memorable, introductory flights.
