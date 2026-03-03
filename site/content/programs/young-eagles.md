@@ -28,8 +28,6 @@ Young Eagles flights are provided through volunteer support and chapter particip
 
 Find upcoming events and pre-register through the Young Eagles registration link:
 
-[Young Eagles Registration](https://www.yeday.org)
-
 <div class="cta-row">
 	<a class="button primary" href="https://www.yeday.org" target="_blank" rel="noopener">Register for Young Eagles</a>
 </div>
