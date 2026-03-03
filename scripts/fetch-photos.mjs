@@ -58,6 +58,50 @@ function shuffleInPlace(items) {
   return items;
 }
 
+async function removeDirectorySafe(dirPath) {
+  try {
+    await fs.rm(dirPath, { recursive: true, force: true });
+  } catch {}
+}
+
+async function moveFileSafe(fromPath, toPath) {
+  try {
+    await fs.rename(fromPath, toPath);
+  } catch {
+    await fs.copyFile(fromPath, toPath);
+    await fs.unlink(fromPath);
+  }
+}
+
+async function fileExists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function sourceToStaticPath(src = "") {
+  const value = String(src || "");
+  if (!value.startsWith("/images/photo-feed/")) return null;
+  const relative = value.replace(/^\//, "");
+  return path.join(SITE_DIR, "static", relative);
+}
+
+async function keepExistingPhotoFiles(photos) {
+  const kept = [];
+
+  for (const photo of photos) {
+    const localPath = sourceToStaticPath(photo?.src);
+    if (!localPath || (await fileExists(localPath))) {
+      kept.push(photo);
+    }
+  }
+
+  return kept;
+}
+
 function normalizeCachedPhoto(photo, index) {
   if (!photo?.src) return null;
   const mimeType = String(photo.mimeType || "").toLowerCase();
@@ -136,37 +180,58 @@ async function fetchPhotosFromApi() {
 
   const photos = shuffleInPlace([...listPayload.photos]).slice(0, Math.max(1, PHOTO_STRIP_LIMIT));
   await fs.mkdir(STATIC_IMAGES_DIR, { recursive: true });
-  await clearGeneratedPhotos();
+
+  const stageDir = path.join(
+    STATIC_IMAGES_DIR,
+    `.staging-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
+  );
+  await fs.mkdir(stageDir, { recursive: true });
 
   const normalized = [];
 
-  for (let index = 0; index < photos.length; index += 1) {
-    const photo = photos[index];
-    if (!photo?.imageApi) continue;
+  try {
+    for (let index = 0; index < photos.length; index += 1) {
+      const photo = photos[index];
+      if (!photo?.imageApi) continue;
 
-    const imagePayload = await fetchJson(photo.imageApi);
-    if (!imagePayload?.ok || !imagePayload?.dataBase64) continue;
+      const imagePayload = await fetchJson(photo.imageApi);
+      if (!imagePayload?.ok || !imagePayload?.dataBase64) continue;
 
-    const mimeType = String(imagePayload.mimeType || photo.mimeType || "").toLowerCase();
-    if (!SUPPORTED_MIME_TYPES.has(mimeType)) continue;
+      const mimeType = String(imagePayload.mimeType || photo.mimeType || "").toLowerCase();
+      if (!SUPPORTED_MIME_TYPES.has(mimeType)) continue;
 
-    const ext = extensionFromMime(mimeType);
-    if (!ext) continue;
-    const base = sanitizeBaseName(imagePayload.name || photo.name || photo.id || `photo-${index + 1}`);
-    const filename = `${String(index + 1).padStart(2, "0")}-${base || `photo-${index + 1}`}.${ext}`;
+      const ext = extensionFromMime(mimeType);
+      if (!ext) continue;
+      const base = sanitizeBaseName(imagePayload.name || photo.name || photo.id || `photo-${index + 1}`);
+      const filename = `${String(index + 1).padStart(2, "0")}-${base || `photo-${index + 1}`}.${ext}`;
 
-    const filePath = path.join(STATIC_IMAGES_DIR, filename);
-    const data = Buffer.from(imagePayload.dataBase64, "base64");
-    await fs.writeFile(filePath, data);
+      const filePath = path.join(stageDir, filename);
+      const data = Buffer.from(imagePayload.dataBase64, "base64");
+      await fs.writeFile(filePath, data);
 
-    normalized.push({
-      id: photo.id || `photo-${index + 1}`,
-      name: imagePayload.name || photo.name || `Photo ${index + 1}`,
-      src: `/images/photo-feed/${filename}`,
-      full: `/images/photo-feed/${filename}`,
-      alt: toAlt(imagePayload.name || photo.name || `Photo ${index + 1}`),
-      mimeType,
-    });
+      normalized.push({
+        id: photo.id || `photo-${index + 1}`,
+        name: imagePayload.name || photo.name || `Photo ${index + 1}`,
+        src: `/images/photo-feed/${filename}`,
+        full: `/images/photo-feed/${filename}`,
+        alt: toAlt(imagePayload.name || photo.name || `Photo ${index + 1}`),
+        mimeType,
+      });
+    }
+
+    if (normalized.length === 0) {
+      throw new Error("No photos were downloaded from feed");
+    }
+
+    await clearGeneratedPhotos();
+    const stagedFiles = await fs.readdir(stageDir);
+    await Promise.all(
+      stagedFiles.map((name) =>
+        moveFileSafe(path.join(stageDir, name), path.join(STATIC_IMAGES_DIR, name))
+      )
+    );
+  } finally {
+    await removeDirectorySafe(stageDir);
   }
 
   log(`Fetched and wrote ${normalized.length} photos.`);
@@ -178,7 +243,8 @@ async function loadFallback() {
     try {
       const raw = await fs.readFile(filePath, "utf8");
       const payload = JSON.parse(raw);
-      const photos = normalizeCachePayload(payload);
+      const cached = normalizeCachePayload(payload);
+      const photos = await keepExistingPhotoFiles(cached);
       if (photos.length > 0) {
         log(`Using fallback from ${path.basename(filePath)} (${photos.length} photos).`);
         return photos;
