@@ -508,6 +508,12 @@ a:hover { text-decoration: underline; }
   max-width: 78ch;
 }
 
+.young-eagles-hero-content {
+  align-content: end;
+  padding-top: 0;
+  padding-bottom: 2.25rem;
+}
+
 .donate-hero-cta {
   justify-content: center;
 }

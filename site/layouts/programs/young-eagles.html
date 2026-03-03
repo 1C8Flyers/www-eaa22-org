@@ -3,7 +3,7 @@
     {{ $heroPos := $.Params.heroPosition | default "center" }}
     <section class="hero hero-image donate-hero fade-in">
       <img class="hero-bg" src="{{ . }}" alt="{{ $.Params.heroAlt | default $.Title }}" style="object-position: {{ $heroPos }};">
-      <div class="container hero-content donate-hero-content">
+      <div class="container hero-content donate-hero-content young-eagles-hero-content">
         <h1>{{ $.Title }}</h1>
         {{ with $.Description }}<p>{{ . }}</p>{{ end }}
       </div>
