@@ -1,6 +1,6 @@
 ---
 title: "Young Eagles"
-heroImage: "/images/young-eagles-hero.jpeg"
+heroImage: "/images/young-eagles-hero.png"
 heroAlt: "Young Eagles participant and volunteer standing in front of an aircraft at Cottonwood Airport"
 heroPosition: "center top"
 ---
@@ -30,8 +30,6 @@ Find upcoming events and pre-register through the Young Eagles registration link
 
 [Young Eagles Registration](https://www.yeday.org)
 
-For chapter-specific questions:
-
 <div class="cta-row">
-	<a class="button primary" href="/contact/">Contact Chapter 22</a>
+	<a class="button primary" href="https://www.yeday.org" target="_blank" rel="noopener">Register for Young Eagles</a>
 </div>
