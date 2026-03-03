@@ -7,19 +7,15 @@ heroAlt: "Young Eagles participants preparing for a flight at Cottonwood Airport
 heroPosition: "center"
 ---
 
-<div class="cta-row">
-	<a class="button primary" href="https://www.yeday.org" target="_blank" rel="noopener">Register for Young Eagles</a>
-</div>
+Young Eagles is EAA’s signature youth flight experience, giving ages 8–17 a safe and memorable first introduction to aviation with EAA Chapter 22.
+
+[Register for Young Eagles](https://www.yeday.org)
 
 ---
 
 ## Why Young Eagles Matters
 
-Young Eagles is EAA’s flagship youth initiative, built to open doors for the next generation of aviators.
-
-Through each flight, youth gain confidence, perspective, and a direct connection to the aviation community.
-
-At Chapter 22, this program helps families in Rockford and Northern Illinois see aviation as an achievable pathway, not a distant goal.
+Young Eagles is EAA’s flagship youth mission and often the first step into aviation for local families. Each flight builds confidence, sparks curiosity, and helps youth in Rockford and Northern Illinois see a real pathway into flight and aerospace learning.
 
 ---
 
@@ -27,49 +23,75 @@ At Chapter 22, this program helps families in Rockford and Northern Illinois see
 
 ### Preflight Briefing
 
-Each participant receives a short safety and orientation briefing, including aircraft basics and what to expect before takeoff.
+Each participant receives a concise safety briefing and introduction to the aircraft, flight plan, and airport procedures.
 
-### 15–20 Minute Flight
+### The Flight (15–20 minutes)
 
-Youth fly with a qualified volunteer pilot for an introductory flight that provides real-world exposure to takeoff, flight, and landing.
+Youth fly with a qualified volunteer pilot for an introductory flight that includes takeoff, in-flight orientation, and landing.
 
-### Post-Flight Pathway
+### After the Flight
 
-After the flight, families receive clear next steps to continue learning, training, and involvement in aviation.
-
-Flights are weather dependent and conducted by experienced volunteer pilots committed to safety and mentorship.
-
----
-
-## After the Flight
-
-For many youth, a Young Eagles flight is the first step in a longer journey.
-
-Participants can continue through:
-
-- EAA Student Membership and aviation learning resources
-- A structured flight-training pathway with local guidance
-- Scholarships and mentorship opportunities as they become available
-
-Chapter 22 helps families understand practical next steps and connect with the right people to keep momentum going.
+Families receive information on student membership, next-step education resources, and opportunities to stay involved in aviation.
 
 ---
 
 ## Registration
 
-Young Eagles registration is completed through EAA’s official national system at YEday.
+Registration is required in advance through EAA’s official Young Eagles system.
 
-<div class="cta-row">
-	<a class="button primary" href="https://www.yeday.org" target="_blank" rel="noopener">Register at YEday.org</a>
-</div>
+[Register at YEday.org](https://www.yeday.org)
 
 A parent or legal guardian must be present on event day to complete required waivers.
 
 ---
 
+## Day of the Event
+
+### Arrival
+
+Please arrive a little early for check-in so your family has time for orientation before flights begin.
+
+### What to Wear
+
+Wear comfortable clothing and closed-toe shoes suitable for walking on the ramp.
+
+### Weather
+
+Flights are weather dependent. If conditions are not safe, events may be delayed, adjusted, or rescheduled.
+
+### Photos
+
+Families are welcome to take photos before and after the flight in designated areas.
+
+### Siblings and Walk-ins
+
+Siblings are welcome to attend. Walk-ins may be accepted only if schedule capacity and registration requirements allow.
+
+---
+
+## FAQ
+
+### Is it safe?
+
+Safety is the top priority. Flights are conducted by qualified volunteer pilots under established Young Eagles procedures.
+
+### Can parents ride along?
+
+Parent seats are typically not available. Event teams can explain aircraft and seating options on site.
+
+### Does this commit my child to flight training?
+
+No. Young Eagles is an introductory experience with no obligation to continue.
+
+### How long should we plan to be there?
+
+Plan for approximately 60–90 minutes to allow time for check-in, briefing, flight, and post-flight activities.
+
+---
+
 ## Volunteer With Young Eagles
 
-Pilots and ground volunteers are essential to making each rally safe, welcoming, and impactful.
+Volunteer pilots and ground crew are essential to keeping Young Eagles safe, welcoming, and efficient.
 
 If you would like to help at an upcoming event, please [contact Chapter 22](/contact/).
 
