@@ -150,24 +150,35 @@ async function writePhotos(photos, alsoCache) {
   }
 }
 
-async function fetchJson(url, timeoutMs = PHOTO_FETCH_TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+async function fetchJson(url, timeoutMs = PHOTO_FETCH_TIMEOUT_MS, retries = 2) {
+  let lastError = null;
 
-  try {
-    const response = await fetch(url, {
-      signal: controller.signal,
-      headers: { Accept: "application/json" },
-    });
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
 
-    if (!response.ok) {
-      throw new Error(`Request failed (${response.status}) for ${url}`);
+    try {
+      const response = await fetch(url, {
+        signal: controller.signal,
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed (${response.status}) for ${url}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      lastError = error;
+      if (attempt < retries) {
+        await new Promise((resolve) => setTimeout(resolve, 750 * (attempt + 1)));
+      }
+    } finally {
+      clearTimeout(timeout);
     }
-
-    return await response.json();
-  } finally {
-    clearTimeout(timeout);
   }
+
+  throw lastError || new Error(`Request failed for ${url}`);
 }
 
 async function fetchPhotosFromApi() {
@@ -194,29 +205,33 @@ async function fetchPhotosFromApi() {
       const photo = photos[index];
       if (!photo?.imageApi) continue;
 
-      const imagePayload = await fetchJson(photo.imageApi);
-      if (!imagePayload?.ok || !imagePayload?.dataBase64) continue;
+      try {
+        const imagePayload = await fetchJson(photo.imageApi);
+        if (!imagePayload?.ok || !imagePayload?.dataBase64) continue;
 
-      const mimeType = String(imagePayload.mimeType || photo.mimeType || "").toLowerCase();
-      if (!SUPPORTED_MIME_TYPES.has(mimeType)) continue;
+        const mimeType = String(imagePayload.mimeType || photo.mimeType || "").toLowerCase();
+        if (!SUPPORTED_MIME_TYPES.has(mimeType)) continue;
 
-      const ext = extensionFromMime(mimeType);
-      if (!ext) continue;
-      const base = sanitizeBaseName(imagePayload.name || photo.name || photo.id || `photo-${index + 1}`);
-      const filename = `${String(index + 1).padStart(2, "0")}-${base || `photo-${index + 1}`}.${ext}`;
+        const ext = extensionFromMime(mimeType);
+        if (!ext) continue;
+        const base = sanitizeBaseName(imagePayload.name || photo.name || photo.id || `photo-${index + 1}`);
+        const filename = `${String(index + 1).padStart(2, "0")}-${base || `photo-${index + 1}`}.${ext}`;
 
-      const filePath = path.join(stageDir, filename);
-      const data = Buffer.from(imagePayload.dataBase64, "base64");
-      await fs.writeFile(filePath, data);
+        const filePath = path.join(stageDir, filename);
+        const data = Buffer.from(imagePayload.dataBase64, "base64");
+        await fs.writeFile(filePath, data);
 
-      normalized.push({
-        id: photo.id || `photo-${index + 1}`,
-        name: imagePayload.name || photo.name || `Photo ${index + 1}`,
-        src: `/images/photo-feed/${filename}`,
-        full: `/images/photo-feed/${filename}`,
-        alt: toAlt(imagePayload.name || photo.name || `Photo ${index + 1}`),
-        mimeType,
-      });
+        normalized.push({
+          id: photo.id || `photo-${index + 1}`,
+          name: imagePayload.name || photo.name || `Photo ${index + 1}`,
+          src: `/images/photo-feed/${filename}`,
+          full: `/images/photo-feed/${filename}`,
+          alt: toAlt(imagePayload.name || photo.name || `Photo ${index + 1}`),
+          mimeType,
+        });
+      } catch (error) {
+        log(`Skipping photo ${photo.id || index + 1}: ${error.message}`);
+      }
     }
 
     if (normalized.length === 0) {
