@@ -25,22 +25,17 @@ At Chapter 22, this program helps families in Rockford and Northern Illinois see
 
 ## What to Expect
 
-<div class="grid donate-impact-grid">
-	<article class="card donate-impact-card fade-in">
-		<h3>Preflight Briefing</h3>
-		<p>Each participant receives a clear safety and orientation briefing, including aircraft basics and what to expect before takeoff.</p>
-	</article>
+### Preflight Briefing
 
-	<article class="card donate-impact-card fade-in">
-		<h3>15–20 Minute Flight</h3>
-		<p>Youth fly with a qualified volunteer pilot for an introductory flight that provides real-world exposure to takeoff, flight, and landing.</p>
-	</article>
+Each participant receives a short safety and orientation briefing, including aircraft basics and what to expect before takeoff.
 
-	<article class="card donate-impact-card fade-in">
-		<h3>Post-Flight Pathway</h3>
-		<p>After the flight, families receive guidance on next steps to continue learning, training, and involvement in aviation.</p>
-	</article>
-</div>
+### 15–20 Minute Flight
+
+Youth fly with a qualified volunteer pilot for an introductory flight that provides real-world exposure to takeoff, flight, and landing.
+
+### Post-Flight Pathway
+
+After the flight, families receive clear next steps to continue learning, training, and involvement in aviation.
 
 Flights are weather dependent and conducted by experienced volunteer pilots committed to safety and mentorship.
 
