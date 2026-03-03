@@ -17,6 +17,7 @@ const STATIC_IMAGES_DIR = path.join(SITE_DIR, "static", "images", "photo-feed");
 
 const PHOTOS_FILE = path.join(DATA_DIR, "photos.json");
 const PHOTOS_CACHE_FILE = path.join(DATA_DIR, "photos.cache.json");
+const SUPPORTED_MIME_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
 
 function log(message) {
   console.log(`[fetch-photos] ${message}`);
@@ -37,7 +38,7 @@ function extensionFromMime(mimeType = "") {
   if (mime === "image/png") return "png";
   if (mime === "image/webp") return "webp";
   if (mime === "image/gif") return "gif";
-  return "jpg";
+  return "";
 }
 
 function sanitizeBaseName(name = "") {
@@ -59,13 +60,19 @@ function shuffleInPlace(items) {
 
 function normalizeCachedPhoto(photo, index) {
   if (!photo?.src) return null;
+  const mimeType = String(photo.mimeType || "").toLowerCase();
+  if (mimeType && !SUPPORTED_MIME_TYPES.has(mimeType)) return null;
+
+  const src = String(photo.src || "").toLowerCase();
+  if (!src.match(/\.(jpg|jpeg|png|webp|gif)$/)) return null;
+
   return {
     id: photo.id || `photo-${index + 1}`,
     name: photo.name || `Photo ${index + 1}`,
     src: photo.src,
     full: photo.full || photo.src,
     alt: photo.alt || toAlt(photo.name),
-    mimeType: photo.mimeType || "",
+    mimeType,
   };
 }
 
@@ -140,10 +147,11 @@ async function fetchPhotosFromApi() {
     const imagePayload = await fetchJson(photo.imageApi);
     if (!imagePayload?.ok || !imagePayload?.dataBase64) continue;
 
-    const mimeType = imagePayload.mimeType || photo.mimeType || "image/jpeg";
-    if (!String(mimeType).toLowerCase().startsWith("image/")) continue;
+    const mimeType = String(imagePayload.mimeType || photo.mimeType || "").toLowerCase();
+    if (!SUPPORTED_MIME_TYPES.has(mimeType)) continue;
 
     const ext = extensionFromMime(mimeType);
+    if (!ext) continue;
     const base = sanitizeBaseName(imagePayload.name || photo.name || photo.id || `photo-${index + 1}`);
     const filename = `${String(index + 1).padStart(2, "0")}-${base || `photo-${index + 1}`}.${ext}`;
 

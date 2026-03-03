@@ -67,7 +67,7 @@ timeZone = "America/Chicago"
     parent = "more"
     weight = 51
   [[menu.main]]
-    name = "Donate"
+    name = "Support Us"
     url = "/donate/"
     parent = "more"
     weight = 52
