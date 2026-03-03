@@ -2,6 +2,7 @@
 title: "Young Eagles"
 heroImage: "/images/young-eagles-hero.jpeg"
 heroAlt: "Young Eagles participant and volunteer standing in front of an aircraft at Cottonwood Airport"
+heroPosition: "center top"
 ---
 
 The **Young Eagles Program** is EAA's flagship youth aviation program and has introduced millions of young people to flight.
@@ -29,4 +30,8 @@ Find upcoming events and pre-register through the Young Eagles registration link
 
 [Young Eagles Registration](https://www.yeday.org)
 
-For chapter-specific questions, use our [contact page](/contact/).
+For chapter-specific questions:
+
+<div class="cta-row">
+	<a class="button primary" href="/contact/">Contact Chapter 22</a>
+</div>
