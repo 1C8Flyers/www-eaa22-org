@@ -9,6 +9,7 @@ EAA Chapter 22 programs are built to grow participation in aviation through educ
 - **Young Eagles** — free introductory flights for youth ages 8–17, including a short ground-school experience.
 - **Private Pilot Ground School** — affordable, chapter-led aeronautical knowledge training for aspiring private pilots.
 - **VMC/IMC Club** — scenario-based discussions focused on safer decision-making for VFR and IFR operations.
+- **Flight Simulator** — hands-on simulator sessions that introduce new aviators to controls, procedures, and confidence-building practice.
 - **Civil Air Patrol (Rockford Composite Squadron)** — cadet-focused leadership and aerospace development through a close local partnership.
 - **Aircraft Builds** — collaborative projects that help members learn systems, tools, and practical shop skills.
 - **Scout Merit Badges** — aviation-focused learning opportunities for youth scouting programs.
