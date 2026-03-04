@@ -27,6 +27,9 @@
               <details class="nav-dropdown {{ if $hasChildActive }}active{{ end }}" {{ if $hasChildActive }}open{{ end }}>
                 <summary class="nav-parent">{{ .Name }}</summary>
                 <div class="nav-menu">
+                  {{ if ne .URL "#" }}
+                    <a href="{{ .URL }}" class="{{ if $isActive }}active{{ end }}">{{ .Name }}</a>
+                  {{ end }}
                   {{ range .Children }}
                     {{ $childActive := false }}
                     {{ if eq .URL "/" }}
