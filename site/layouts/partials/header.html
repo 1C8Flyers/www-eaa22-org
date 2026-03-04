@@ -28,7 +28,7 @@
                 <summary class="nav-parent">{{ .Name }}</summary>
                 <div class="nav-menu">
                   {{ if ne .URL "#" }}
-                    <a href="{{ .URL }}" class="{{ if $isActive }}active{{ end }}">{{ .Name }}</a>
+                    <a href="{{ .URL }}" class="{{ if $isActive }}active{{ end }}">{{ .Params.menuLinkName | default .Name }}</a>
                   {{ end }}
                   {{ range .Children }}
                     {{ $childActive := false }}

@@ -36,6 +36,8 @@ timeZone = "America/Chicago"
     identifier = "about"
     url = "/about/"
     weight = 60
+    [menu.main.params]
+      menuLinkName = "About the Chapter"
   [[menu.main]]
     name = "Get Involved"
     identifier = "get-involved"
