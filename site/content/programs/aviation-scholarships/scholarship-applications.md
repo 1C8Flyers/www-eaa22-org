@@ -1,5 +1,7 @@
 ---
 title: "Scholarship Applications"
+build:
+  list: never
 ---
 
 Thank you for your interest in EAA Chapter 22 aviation scholarship opportunities.
