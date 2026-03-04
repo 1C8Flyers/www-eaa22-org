@@ -33,8 +33,9 @@ timeZone = "America/Chicago"
     weight = 20
   [[menu.main]]
     name = "About"
+    identifier = "about"
     url = "/about/"
-    weight = 30
+    weight = 60
   [[menu.main]]
     name = "Get Involved"
     identifier = "get-involved"
@@ -48,7 +49,8 @@ timeZone = "America/Chicago"
   [[menu.main]]
     name = "Airport Info"
     url = "/airport-info/"
-    weight = 60
+    parent = "about"
+    weight = 61
 
   [[menu.main]]
     name = "Join"
