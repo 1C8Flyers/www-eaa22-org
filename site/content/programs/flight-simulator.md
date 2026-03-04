@@ -2,6 +2,9 @@
 title: "Flight Simulator"
 description: "Learn about the EAA Chapter 22 flight simulator at Cottonwood Airport and how it helps introduce new pilots to aviation."
 layout: "default"
+heroImage: "/images/flight-sim.png"
+heroAlt: "Instructor guiding a student at the Chapter 22 flight simulator"
+heroPosition: "center"
 ---
 
 ## Introduction
