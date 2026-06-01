@@ -14,7 +14,7 @@ Whether you're a pilot, student, builder, or simply aviation-curious, chapter me
 Complete the form below to get started.
 
 <style>
-.cf-signup{font-family:Arial,sans-serif;width:100%;max-width:100%;background:#fff;border-radius:14px;box-shadow:0 16px 30px rgba(15,23,42,.08);padding:22px}
+.cf-signup{font-family:Arial,sans-serif;max-width:680px;background:#fff;border-radius:14px;box-shadow:0 16px 30px rgba(15,23,42,.08);padding:22px}
 .cf-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
 .cf-field{display:flex;flex-direction:column;gap:6px}
 .cf-field label{font-size:13px;color:#374151;font-weight:600}
@@ -31,6 +31,17 @@ Complete the form below to get started.
     <div class="cf-field"><label>Last Name</label><input name="LastName" required /></div>
     <div class="cf-field"><label>Email</label><input name="Email" type="email" required /></div>
     <div class="cf-field"><label>EAA Number (optional)</label><input name="EAANumber" /></div>
+    <div class="cf-field cf-full">
+      <label>Membership Type</label>
+      <select name="MemberType" required>
+        <option value="Individual">Individual - $25</option>
+        <option value="Family">Family - $40</option>
+        <option value="Student">Student</option>
+        <option value="Honorary">Honorary</option>
+        <option value="Prospect" selected>Prospect</option>
+        <option value="Deceased">Deceased</option>
+      </select>
+    </div>
     <div class="cf-field cf-full"><label>Street Address</label><input name="Street" required /></div>
     <div class="cf-field"><label>City</label><input name="City" required /></div>
     <div class="cf-field"><label>State</label><input name="State" required /></div>
@@ -46,6 +57,9 @@ Complete the form below to get started.
         <option>Search engine</option>
         <option>Other</option>
       </select>
+    </div>
+    <div class="cf-field cf-full">
+      <label><input type="checkbox" name="PayOnline" value="true" checked style="width:auto;margin-right:8px" />Pay online after submitting</label>
     </div>
   </div>
   <div class="cf-notice">By submitting this form, you agree to be added to our chapter events email list.</div>
