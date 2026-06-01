@@ -34,12 +34,9 @@ Complete the form below to get started.
     <div class="cf-field cf-full">
       <label>Membership Type</label>
       <select name="MemberType" required>
-        <option value="Individual">Individual - $25</option>
+        <option value="Individual" selected>Individual - $25</option>
         <option value="Family">Family - $40</option>
         <option value="Student">Student</option>
-        <option value="Honorary">Honorary</option>
-        <option value="Prospect" selected>Prospect</option>
-        <option value="Deceased">Deceased</option>
       </select>
     </div>
     <div class="cf-field cf-full"><label>Street Address</label><input name="Street" required /></div>
