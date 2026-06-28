@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const PHOTO_FEED_URL =
   process.env.PHOTO_FEED_URL ||
@@ -17,7 +18,9 @@ const STATIC_IMAGES_DIR = path.join(SITE_DIR, "static", "images", "photo-feed");
 
 const PHOTOS_FILE = path.join(DATA_DIR, "photos.json");
 const PHOTOS_CACHE_FILE = path.join(DATA_DIR, "photos.cache.json");
-const SUPPORTED_MIME_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
+const DISPLAY_MIME_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
+const CONVERTIBLE_MIME_TYPES = new Set(["image/heic", "image/heif", "image/heic-sequence", "image/heif-sequence"]);
+const SUPPORTED_MIME_TYPES = new Set([...DISPLAY_MIME_TYPES, ...CONVERTIBLE_MIME_TYPES]);
 
 function log(message) {
   console.log(`[fetch-photos] ${message}`);
@@ -39,6 +42,28 @@ function extensionFromMime(mimeType = "") {
   if (mime === "image/webp") return "webp";
   if (mime === "image/gif") return "gif";
   return "";
+}
+
+function isConvertibleHeic(mimeType = "", name = "") {
+  const mime = String(mimeType || "").toLowerCase();
+  const filename = String(name || "").toLowerCase();
+  return CONVERTIBLE_MIME_TYPES.has(mime) || /\.(heic|heif)$/i.test(filename);
+}
+
+async function normalizeImageData(data, mimeType, name) {
+  if (!isConvertibleHeic(mimeType, name)) {
+    return {
+      data,
+      mimeType,
+      ext: extensionFromMime(mimeType),
+    };
+  }
+
+  return {
+    data: await sharp(data).rotate().jpeg({ quality: 88 }).toBuffer(),
+    mimeType: "image/jpeg",
+    ext: "jpg",
+  };
 }
 
 function sanitizeBaseName(name = "") {
@@ -105,7 +130,7 @@ async function keepExistingPhotoFiles(photos) {
 function normalizeCachedPhoto(photo, index) {
   if (!photo?.src) return null;
   const mimeType = String(photo.mimeType || "").toLowerCase();
-  if (mimeType && !SUPPORTED_MIME_TYPES.has(mimeType)) return null;
+  if (mimeType && !DISPLAY_MIME_TYPES.has(mimeType)) return null;
 
   const src = String(photo.src || "").toLowerCase();
   if (!src.match(/\.(jpg|jpeg|png|webp|gif)$/)) return null;
@@ -209,17 +234,19 @@ async function fetchPhotosFromApi() {
         const imagePayload = await fetchJson(photo.imageApi);
         if (!imagePayload?.ok || !imagePayload?.dataBase64) continue;
 
-        const mimeType = String(imagePayload.mimeType || photo.mimeType || "").toLowerCase();
-        if (!SUPPORTED_MIME_TYPES.has(mimeType)) continue;
+        const originalMimeType = String(imagePayload.mimeType || photo.mimeType || "").toLowerCase();
+        const originalName = imagePayload.name || photo.name || photo.id || `photo-${index + 1}`;
+        if (!SUPPORTED_MIME_TYPES.has(originalMimeType) && !isConvertibleHeic(originalMimeType, originalName)) continue;
 
-        const ext = extensionFromMime(mimeType);
+        const data = Buffer.from(imagePayload.dataBase64, "base64");
+        const normalizedImage = await normalizeImageData(data, originalMimeType, originalName);
+        const { mimeType, ext } = normalizedImage;
         if (!ext) continue;
-        const base = sanitizeBaseName(imagePayload.name || photo.name || photo.id || `photo-${index + 1}`);
+        const base = sanitizeBaseName(originalName);
         const filename = `${String(index + 1).padStart(2, "0")}-${base || `photo-${index + 1}`}.${ext}`;
 
         const filePath = path.join(stageDir, filename);
-        const data = Buffer.from(imagePayload.dataBase64, "base64");
-        await fs.writeFile(filePath, data);
+        await fs.writeFile(filePath, normalizedImage.data);
 
         normalized.push({
           id: photo.id || `photo-${index + 1}`,
